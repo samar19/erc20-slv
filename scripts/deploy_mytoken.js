@@ -1,16 +1,18 @@
 
 // scripts/deploy_mytoken.js
-const { ethers, upgrades } = require("hardhat");
+const hre = require("hardhat");
 
 async function main() {
-  const SilvaToken = await ethers.getContractFactory("SilvaToken");
-
-  const sl = await upgrades.deployProxy(SilvaToken, [], {
-    initializer: "initialize",
-  });
-
+  const SilvaToken = await hre.ethers.getContractFactory("SilvaToken");
+  const sl = await SilvaToken.deploy(100000000);
+  
   await sl.deployed();
-  console.log("MyToken deployed to:", sl.address);
+
+  console.log("Silva Token deployed: ", sl.address);
 }
 
-main();
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
+
