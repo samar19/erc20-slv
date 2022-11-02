@@ -26,8 +26,8 @@ SLV token design is
 INITAIL SUPPLY = 1000000000000000000000000
 1- INITAIL SUPPLY initialy generate mint and then send to the owner(send to owner ) - 70,000,000 can send family or liquidity swap (done )
 2- max supply(capped) - 100,000,000 (done)
+3- token burnable (done)
+4- create block reward to distribute new supply to miners
 - minting strategy
 - block reward
-- token burnable
-- create block reward to distribute new supply to miners
 
