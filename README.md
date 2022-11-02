@@ -24,8 +24,8 @@ npx hardhat verify --network mumbai 0x5FbDB2315678afecb367f032d93F642f64180aa3
 
 SLV token design is
 INITAIL SUPPLY = 1000000000000000000000000
-- INITAIL SUPPLY initialy generate mint and then send to the owner(send to owner ) - 70,000,000 can send family or liquidity swap (done )
-- max supply(capped) - 100,000,000
+1- INITAIL SUPPLY initialy generate mint and then send to the owner(send to owner ) - 70,000,000 can send family or liquidity swap (done )
+2- max supply(capped) - 100,000,000 (done)
 - minting strategy
 - block reward
 - token burnable
