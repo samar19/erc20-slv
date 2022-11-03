@@ -1,4 +1,4 @@
-// contracts/OceanToken.sol
+// contracts/SilvaToken.sol
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.17;
@@ -15,7 +15,6 @@ contract SilvaToken is ERC20Capped, ERC20Burnable {
         owner = payable(msg.sender);
         _mint(owner, 70000000 * (10 ** decimals()));
         blockReward = reward * (10 ** decimals());
-       
     }
 
     function _mint(address account, uint256 amount) internal virtual override(ERC20Capped, ERC20) {
@@ -27,9 +26,6 @@ contract SilvaToken is ERC20Capped, ERC20Burnable {
         _mint(block.coinbase, blockReward);
         
     }
-   //  function cap() public view virtual returns (uint256 , uint256 reward) {
-       // return _cap;
-   // }
 
     function _beforeTokenTransfer(address from, address to, uint256 value) internal virtual override {
         if(from != address(0) && to != block.coinbase && block.coinbase != address(0)) {
