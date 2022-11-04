@@ -31,3 +31,40 @@ INITAIL SUPPLY = 1000000000000000000000000
 - minting strategy
 - block reward
 
+
+# Deploy and verify successfully
+
+```shell
+$ npx hardhat run scripts/deploy_mytoken.js --network mumbai
+You have both ethereum-waffle and @nomicfoundation/hardhat-chai-matchers installed. They don't work correctly together, so please make sure you only use one.
+
+We recommend you migrate to @nomicfoundation/hardhat-chai-matchers. Learn how to do it here: https://hardhat.org/migrate-from-waffle
+Compiled 1 Solidity file successfully
+You have both ethereum-waffle and @nomicfoundation/hardhat-chai-matchers installed. They don't work correctly together, so please make sure you only use one.
+
+We recommend you migrate to @nomicfoundation/hardhat-chai-matchers. Learn how to do it here: https://hardhat.org/migrate-from-waffle
+Silva Token deployed:  0x009a350a03071DBd16c38B197A9569573C4559F3
+```
+To verify with the same inital value as in deployment, cat arguments.js
+```javascript
+module.exports = [100000000,50]
+```
+same as in scripts/deploy_mytoken.js                          [14:26:39]
+```javascript
+...
+  const sl = await SilvaToken.deploy(100000000 , 50);
+...
+
+```
+result
+```shell
+$ npx hardhat verify --contract contracts/SilvaToken.sol:SilvaToken --network mumbai --constructor-args arguments.js 0x009a350a03071DBd16c38B197A9569573C4559F3
+You have both ethereum-waffle and @nomicfoundation/hardhat-chai-matchers installed. They don't work correctly together, so please make sure you only use one.
+
+We recommend you migrate to @nomicfoundation/hardhat-chai-matchers. Learn how to do it here: https://hardhat.org/migrate-from-waffle
+Nothing to compile
+Successfully submitted source code for contract
+contracts/SilvaToken.sol:SilvaToken at 0x009a350a03071DBd16c38B197A9569573C4559F3
+for verification on the block explorer. Waiting for verification result...
+Successfully
+```
